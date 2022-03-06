@@ -1,0 +1,33 @@
+<section class="login-container container">
+    <div class="row d-flex justify-content-around align-items-center">
+        <div class="col-6 col-md-7 login-fom-main-container">
+            <img class="log-in-logo-image" src="https://assets.ccbp.in/frontend/react-js/nxt-trendz-logo-img.png">
+            <form class="form-container" [formGroup]="signUpReactiveForm">
+                <label><b>User Name</b></label><br>
+                <input class="form-control" type="text" placeholder="Enter User Name" id="userReactive" name="userReactive" formControlName="userReactive">
+                <div *ngIf="userReactive?.invalid && (userReactive?.dirty || userReactive?.touched)">
+                    <p *ngIf="userReactive?.errors?.['required']" style="color: red;"><b>User Id is Required</b></p>
+                    <p *ngIf="userReactive?.errors?.['minlength']" style="color: red;"><b>User Id must contain minimum 6 charecters.</b></p>
+                </div>
+                <label><b>Email</b></label><br>
+                <input class="form-control" type="text" placeholder="Enter Email Id" id="EmailReactive" name="EmailReactive" formControlName="EmailReactive">
+                <div *ngIf="EmailReactive?.invalid && (EmailReactive?.dirty || EmailReactive?.touched)">
+                    <p *ngIf="EmailReactive?.errors?.['required']" style="color: red;"><b>Email Id is Required</b></p>
+                    <p *ngIf="EmailReactive?.errors?.['email']" style="color: red;"><b>Enter Correct Email Id</b></p>
+                </div>
+                <label><b>Password</b></label><br>
+                <input class="form-control" type="password" placeholder="Enter Password" id="passwordReactive" name="passwordReactive" formControlName="passwordReactive">
+                <div *ngIf="passwordReactive?.invalid && (passwordReactive?.dirty || passwordReactive?.touched)">
+                    <p *ngIf="passwordReactive?.errors?.['required']" style="color: red;"><b>Password is Required</b></p>
+                    <p *ngIf="passwordReactive?.errors?.['minlength']" style="color: red;"><b>Password must be 8 charecters long</b></p>
+                </div>
+                <input type="button" class="form-control btn btn-primary mt-3" value="Sign Up" (click)="onSignUp()">
+            </form>
+            <p style="color: red;"><b>{{msg}}</b></p>
+            <p class="mt-3">Have an Account?<a routerLink="/login">click here</a> to Sing in.</p>
+        </div>
+        <div class="col-6 col-md-5">
+            <img class="log-in-description-image" src="https://assets.ccbp.in/frontend/react-js/nxt-trendz-login-img.png">
+        </div>
+    </div>
+</section>  

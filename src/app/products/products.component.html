@@ -1,0 +1,67 @@
+<app-header></app-header>
+<section class="product-container container mt-4">
+    <div class="row">
+        <div class="col-md-2 filters-column mt-4">
+            <h3>Filters <span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-funnel-fill" viewBox="0 0 16 16">
+                <path d="M1.5 1.5A.5.5 0 0 1 2 1h12a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.128.334L10 8.692V13.5a.5.5 0 0 1-.342.474l-3 1A.5.5 0 0 1 6 14.5V8.692L1.628 3.834A.5.5 0 0 1 1.5 3.5v-2z"/>
+              </svg></span> </h3>
+            <div class="product-tpe-container">
+                <select #products class="form-select" aria-label="Default select example"  name="products" [(ngModel)]="productType" (change)="changeProductType()">
+                    <option>All</option>
+                    <option>Mens</option>
+                    <option>Womens</option>
+                    <option>Electronics</option>
+                </select>
+            </div>
+            <div class="rating-container"> 
+                <img (click)="rating(1)" class="rating mx-1 my-3 p-0" src="../assets/star.svg" alt="rating star">
+                <img (click)="rating(2)" class="rating mx-1 my-3 p-0" src="../assets/star.svg" alt="rating star">
+                <img (click)="rating(3)" class="rating mx-1 my-3 p-0" src="../assets/star.svg" alt="rating star">
+                <img (click)="rating(4)"class="rating mx-1 my-3 p-0" src="../assets/star.svg" alt="rating star">
+                <img (click)="rating(5)" class="rating mx-1 my-3 p-0" src="../assets/star.svg" alt="rating star">
+            </div>
+            <div class="price_range">
+                <label>{{minPrice}}</label>
+                <input class="w-50" type="range" [min]="minPrice" [max]="maxPrice" [(ngModel)]="rangeValue" (change)="onChangePriceRange()">
+                <label>{{maxPrice}}</label>
+                <div class="d-flex justify-content-between">
+                    <input class="form-control m-1" type="text"  [value]="minPrice" readonly>
+                    <input class="form-control m-1" type="text" [(ngModel)]="maxPriceInput" [value]="maxPriceInput" readonly>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-10">
+            <div class="d-md-flex justify-content-between">
+                <h2 class="pl-3">{{productType}} Products</h2>
+                <div>
+                    <img class="filter-icon" src="../assets/filter-right.svg">
+                    <span><b>Price</b></span>
+                    <select class="price-filters" [(ngModel)]="priceSelector" (change)="priceSelect()">
+                        <option><b>&nbsp; Low-High</b></option>
+                        <option><b>&nbsp; High-Low</b></option>
+                    </select>
+                </div>
+            </div>
+            <div class="products-list">
+                <div class="each-product card" *ngFor="let product of allProducts" (click)="goToProduct(product.id)">
+                    <img src={{product.image}} class="product-image">
+                    <div>
+                        <p>{{product.title}}</p>
+                        <p>Price :- <b>$</b>{{product.price}} <span class="mr-3" style="float: right;">&nbsp;Rating:- {{product.rate}}</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- <div class="price-container mt-4">
+    price Range :
+    <select #prices class="form-select" aria-label="Default select example"  name="priceRange" [(ngModel)]="price" (change)="priceFilter()">
+        <option>1-100</option>
+        <option>100-200</option>
+        <option>200-300</option>
+        <option>300-400</option>
+    </select>
+</div> -->

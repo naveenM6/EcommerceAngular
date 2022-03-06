@@ -1,0 +1,29 @@
+.home-container{
+    height: 100vh;
+    display: flex;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.home-image{
+    width: 70%;
+    margin-left: 15%;
+    margin-top: 10px;
+}
+
+@media (min-width:768px){
+    .home-container{
+        margin-top: -40px;
+    }
+    .home-image{
+        width: 80%;
+        object-fit: contain;
+        position: relative;
+        animation: slideLeft 2s;
+    }
+}
+
+
+
+@keyframes slideLeft{
+    from{right: -500px;}
+    to{right: 0px;}
+}

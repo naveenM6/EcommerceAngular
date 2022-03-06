@@ -1,0 +1,103 @@
+<app-header></app-header>
+<section class="cart-container container">
+    <ng-container *ngIf="containItems;then showItems;else showNoItems"></ng-container>
+    <ng-template #showItems>
+        <div class="cart-items-container">
+            <h2>Shopping Cart</h2>
+            <hr>
+            <div class="each-item" *ngFor="let items of cartItems">
+                <div class="row d-flex align-items-center justify-content-start">
+                    <div class="col-md-3">
+                        <img class="cart-item-image" src={{items.image}} alt={{items.title}}>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="item-content">
+                            <p>{{items.title}}</p>
+                            <p class="stock-para"><b>In Stock</b></p>
+                            <select name="items" class="price-select-ip" (change)="productQuantity($event,items.pid)">
+                                <option [selected]="items.numberOfItems == 1" value="1">Qty : 1</option>
+                                <option [selected]="items.numberOfItems == 2" value="2">Qty : 2</option>
+                                <option [selected]="items.numberOfItems == 3" value="3">Qty : 3</option>
+                                <option [selected]="items.numberOfItems == 4" value="4">Qty : 4</option>
+                                <option [selected]="items.numberOfItems == 5" value="5">Qty : 5+</option>
+                            </select>
+                            <span class="delete-item" (click)="deleteItem(items.userId,items.pid)">Delete</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <p class="cart-price"><b>SubTotal ({{cartLength}} items) : ${{price}}</b></p>
+        </div>
+    </ng-template>
+    <ng-template #showNoItems>
+        <div class="no-products-container">
+            <img [src]="cartImage" class="no-products-cart-image" alt="cart-image">
+            <h3>No Products Added</h3>
+        </div>
+    </ng-template>
+    <div class="price-checkout-container" *ngIf ="containItems == true">
+        <p style="color: rgb(14, 94, 14);"><b>your order is eligible for free delivery.<br> click Proceed to buy to order</b></p>
+        <p class="text-center"><b>SubTotal ({{cartLength}} items) : ${{price}}</b></p>
+        <input class="form-control btn btn-primary" type="button" value="Proceed to Buy" (click)="onClickProcced()">
+    </div>
+    <div class="order-form" [ngStyle]="{'display': displayModal === true ? 'flex' : 'none' }" (click)="cancelOrder()">
+        <div class="inner-order-div" (click)="cancelPropogation($event)">
+            <div class="cancel-svg" (click)="cancelOrder()">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M13.854 2.146a.5.5 0 0 1 0 .708l-11 11a.5.5 0 0 1-.708-.708l11-11a.5.5 0 0 1 .708 0Z"/>
+                    <path fill-rule="evenodd" d="M2.146 2.146a.5.5 0 0 0 0 .708l11 11a.5.5 0 0 0 .708-.708l-11-11a.5.5 0 0 0-.708 0Z"/>
+                </svg>
+        </div>
+        <ng-container *ngIf="orderSuccess === true;then displaySucess;else details"></ng-container>
+            <ng-template #details>
+                <form class="details-form" [formGroup]="orderReactiveForm">
+                    <label><b>Enter Your Name</b></label>
+                    <input class="form-control" type="text" placeholder="Enter Your Name" formControlName="nameReactive">
+                    <div *ngIf="nameReactive?.invalid && (nameReactive?.dirty || nameReactive?.touched)">
+                        <p *ngIf="nameReactive?.errors?.['required']" style="color: red;"><b>Name is Required</b></p>
+                    </div>
+                    <label><b>Enter Your Phone Number</b></label>
+                    <input class="form-control" type="tel" placeholder="Enter Your Phone Number" formControlName="numberReactive">
+                    <div *ngIf="numberReactive?.invalid && (numberReactive?.dirty || numberReactive?.touched)">
+                        <p *ngIf="numberReactive?.errors?.['required']" style="color: red;"><b>phone number is Required</b></p>
+                        <p *ngIf="numberReactive?.errors?.['minlength']" style="color: red;"><b>phone number must contain minimum 10 charecters.</b></p>
+                        <p *ngIf="numberReactive?.errors?.['maxlength']" style="color: red;"><b>phone number must contain maximum 10 charecters.</b></p>
+                    </div>
+                    <label><b>Enter Your Email</b></label>
+                    <input class="form-control" type="email" placeholder="Enter Your Email" formControlName="mailReactive">
+                    <div *ngIf="mailReactive?.invalid && (mailReactive?.dirty || mailReactive?.touched)">
+                        <p *ngIf="mailReactive?.errors?.['required']" style="color: red;"><b>Email is Required</b></p>
+                        <p *ngIf="mailReactive?.errors?.['email']" style="color: red;"><b>Enter Correct Email Id</b></p>
+                    </div> 
+                    <div class="payment-type">
+                        <input type="radio" id="online" name="payment" value="Online Payment" disabled>&nbsp;
+                        <label for="online"> Online Payment</label>
+                        <br>
+                        <input type="radio" id="cod" value="Cash On Delivery" formControlName="codReactive">&nbsp;
+                        <label for="cod"> Cash On Delivery</label>
+                        <div *ngIf="codReactive?.invalid && (codReactive?.dirty || codReactive?.touched)">
+                            <p *ngIf="codReactive?.errors?.['required']" style="color: red;"><b>Payment Type is Required</b></p>
+                        </div>
+                    </div>
+                    <label><b>Enter Your Address</b></label>
+                    <textarea class="form-control" type="text" placeholder="Enter Your Address" rows="4" cols="50" formControlName="addressReactive"></textarea>
+                    <div *ngIf="addressReactive?.invalid && (addressReactive?.dirty || addressReactive?.touched)">
+                        <p *ngIf="addressReactive?.errors?.['required']" style="color: red;"><b>Address is Required</b></p>
+                    </div>
+                    <div class="d-flex justify-content-end">
+                        <input type="button" class="btn btn-danger mx-1 my-2" value="Cancel" (click)="cancelOrder()">
+                        <input type="button" class="btn btn-primary mx-1 my-2" value="Submit" (click)="onSubmitOrder()">
+                    </div>
+                </form>
+            </ng-template>
+            <ng-template #displaySucess>
+                <div class="order-success">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="green" class="bi bi-check-circle-fill" viewBox="0 0 16 16">
+                        <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
+                    </svg>
+                    <p><b>Order Placed Successfully Please Check Your Mail</b></p>
+                </div>
+            </ng-template>
+        </div>
+    </div>
+</section>

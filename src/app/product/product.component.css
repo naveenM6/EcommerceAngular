@@ -1,0 +1,49 @@
+.project-details{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+}
+.product-image{
+    width: 60%;
+    object-fit: contain;
+    padding: 20px;
+    margin-right: 20%;
+    margin-left: auto;
+}
+
+
+.add-to-cart-buttons{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+.price-and-rating{
+    display: flex;
+    justify-content: space-between;
+}
+
+p{
+    font-weight: bold;
+}
+
+@media (min-width:768px){
+    h2.animation{
+        position: relative;
+        animation: slideLeft 2s;
+    }
+    p.animation{
+        position: relative;
+        animation: slideLeft 3s;
+    }
+}
+
+
+@keyframes slideLeft {
+    from{
+        right: -700px
+    }
+    to{
+        right: 0px;
+    }
+}

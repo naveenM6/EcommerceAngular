@@ -1,0 +1,34 @@
+.no-orders-div{
+    display: flex;
+    flex-direction: column;
+    height: 70vh;
+    align-items: center;
+    justify-content: center;
+}
+.no-orders{
+    height: 70%;
+    width: 70%;
+    object-fit: contain;
+}
+.each-item{
+    display: flex;
+    width: 80vw;
+    align-items: center;
+    margin-top: 30px;
+    margin-left: 40px;
+    box-shadow: 0 8px 40px rgba(82, 78, 78, 0.08);
+    border-radius: 5px;
+    padding: 20px;
+}
+.each-item-image{
+    height: 140px;
+    width: 100px;
+    object-fit: contain;
+    padding-left: 10px;
+}
+.product-info{
+    margin-left: 10%;
+}
+p{
+    font-size: small;
+}

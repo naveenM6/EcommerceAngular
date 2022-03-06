@@ -1,0 +1,24 @@
+<!-- Home Component -->
+<app-header></app-header>
+<section class="home-container container">
+    <div class="row d-flex align-items-center">
+        <div class="col-12 col-md-6 order-1 order-md-0">
+            <h1 class="home-heading">Clothes That Get YOU Noticed</h1>
+            <p class="home-description">
+                Fashion is part of the daily air and it does not quite help that it
+                changes all the time. Clothes have always been a marker of the era
+                and we are in a revolution. Your fashion makes you been seen and
+                heard that way you are. So, celebrate the seasons new and exciting
+                fashion in your own way.
+            </p>
+            <a class="nav-link" routerLink="/products">
+                <button type="button" class="btn btn-primary px-3 py-2">
+                    Shop Now
+                </button>
+            </a>
+        </div>
+        <div class="col-12 col-md-6">
+            <img [src]="homeImage" class="home-image" alt="home image">
+        </div>
+    </div>
+</section>

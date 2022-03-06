@@ -1,0 +1,25 @@
+<app-header> </app-header>
+
+<section class="ordered container">
+    <ng-container *ngIf="isHavingOrders == 0; then noOrders;else showOrders"></ng-container>
+    <ng-template #noOrders>
+        <div class="no-orders-div">
+            <img src="../../assets/noorders.png" class="no-orders" alt="no-orders">
+            <h3>No Orders Yet.</h3>
+        </div>
+    </ng-template>
+    <ng-template #showOrders>
+        <h2 class="pt-2">Orders</h2>
+        <div class="ordered-items" *ngFor="let item of finalData">
+            <div class="each-item container" *ngFor="let eachItem of item.orders">
+                <img class="each-item-image" src={{eachItem.image}} alt={{eachItem.title}}>
+                <div class="product-info">
+                    <h4><b>{{eachItem.title}}</b></h4>
+                    <p><b>Name :- </b>{{item.name}} <b> Phone :- </b>{{item.phone}}</p>
+                    <p><b>Address :- </b>{{item.address}}</p>
+                    <p><b>Ordered On :- </b>{{item.orderedAt}}</p>
+                </div>
+            </div>
+        </div>
+    </ng-template>
+</section> 

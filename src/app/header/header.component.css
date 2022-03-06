@@ -1,0 +1,45 @@
+.header-container{
+    background-color:#dee2e64d;
+    padding: 20px;
+    position: relative;
+}
+.logo{
+    height: 50px;
+    object-fit: contain;
+}
+.list-container{
+    list-style-type: none;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.nav-link{
+    color: #000000;
+}
+
+.nav-images{
+    height:30px;
+}
+
+@media (max-width:767px){
+    .logo{
+        height: 30px;
+    }
+    .logoutLogo{
+        height: 30px;
+    }
+    .header-container{
+        padding: 10px;
+    }
+}
+
+@media (min-width:768px){
+    .header-container{
+        animation: slide 2s;
+    }
+}
+
+@keyframes slide {
+    from{top:-100px;}
+    to{top:0px;}
+}
