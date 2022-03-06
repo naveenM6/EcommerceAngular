@@ -2,6 +2,7 @@
     <div class="row d-flex justify-content-around align-items-center">
         <div class="col-6 col-md-7 login-fom-main-container">
             <img class="log-in-logo-image" src="https://assets.ccbp.in/frontend/react-js/nxt-trendz-logo-img.png">
+            <!--Signup Form (Reactive)-->
             <form class="form-container" [formGroup]="signUpReactiveForm">
                 <label><b>User Name</b></label><br>
                 <input class="form-control" type="text" placeholder="Enter User Name" id="userReactive" name="userReactive" formControlName="userReactive">
@@ -23,6 +24,7 @@
                 </div>
                 <input type="button" class="form-control btn btn-primary mt-3" value="Sign Up" (click)="onSignUp()">
             </form>
+            <!-- Form End -->
             <p style="color: red;"><b>{{msg}}</b></p>
             <p class="mt-3">Have an Account?<a routerLink="/login">click here</a> to Sing in.</p>
         </div>

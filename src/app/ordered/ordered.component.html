@@ -2,12 +2,14 @@
 
 <section class="ordered container">
     <ng-container *ngIf="isHavingOrders == 0; then noOrders;else showOrders"></ng-container>
+    <!--No Orders Ordered Image -->
     <ng-template #noOrders>
         <div class="no-orders-div">
             <img src="../../assets/noorders.png" class="no-orders" alt="no-orders">
             <h3>No Orders Yet.</h3>
         </div>
     </ng-template>
+    <!-- IF there are orders -->
     <ng-template #showOrders>
         <h2 class="pt-2">Orders</h2>
         <div class="ordered-items" *ngFor="let item of finalData">

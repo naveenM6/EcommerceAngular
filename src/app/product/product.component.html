@@ -2,9 +2,11 @@
 
 <section class="prodcut-container container">
     <div class="row project-details">
+        <!--Product Image Rendering -->
         <div class="col-12 col-md-6 card product-image-card">
             <img class="product-image" src={{productImage}}>
         </div>
+        <!-- Product Content Rendering -->
         <div class="col-12 col-md-6">
             <h2 class="animation">{{title}}</h2>
             <p class="animation"><span style="color: blue;">Description</span> : {{description}}</p>
@@ -25,11 +27,6 @@
                         <button class="btn btn-primary" (click)="addToCart()">Added To Cart</button>
                     </div>
                 </ng-template>
-                
-                <!-- <p class="pt-3 pr-3">Add to Cart &nbsp;</p> &nbsp;
-                <button class="btn btn-primary" (click)="decreaseProductCount()"><b>-</b></button>
-                <p class="pt-3">&nbsp;{{productCartCount}}&nbsp;</p>
-                <button class="btn btn-primary" (click)="increaseProductCount()"><b>+</b></button> -->
             </div>
         </div>
     </div>

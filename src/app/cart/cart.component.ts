@@ -49,13 +49,12 @@ export class CartComponent implements OnInit {
   //setting price and on no or items
   setPrice(){
     this.price = 0;
-    /* console.log("price - 1 ",this.price); */
     for(let i=0;i<this.cartItems.length;i++){
       this.price += (this.cartItems[i].price * this.cartItems[i].numberOfItems)
     }
-    /* console.log("price - 2 ",this.price); */
   }
 
+  //Updating the quantity of an item onchage of select in cart
   productQuantity(event:any,pid:number){
     let onChangeSelectValue = event.target.value
     let cartObj = {
@@ -82,24 +81,29 @@ export class CartComponent implements OnInit {
         console.log("success",data);
       },(err) =>{
         this.getCartItems()
-        /* console.log(err) */
+        console.log(err)
       }
     )
   }
 
+  //Setting event capturing
   cancelPropogation(event:Event){
     event.stopPropagation();
   }
 
+  //changing order model form visibility
   onClickProcced(){
     this.displayModal = true
   }
 
 
+  //changing order model form visibility
   cancelOrder(){
     this.displayModal = false
   }
 
+
+  //OnClick Proceed Order Model Form
   orderReactiveForm = new FormGroup({
     nameReactive : new FormControl('',[Validators.required]),
     numberReactive: new FormControl('',[Validators.required,Validators.minLength(10),Validators.maxLength(10)]),
@@ -128,6 +132,7 @@ export class CartComponent implements OnInit {
     return this.orderReactiveForm.get('codReactive');
   }
 
+  //ONclick Order Submit 
   onSubmitOrder(){
     const uid = this.currentUser
     const userName = this.orderReactiveForm.get(['nameReactive'])?.value;

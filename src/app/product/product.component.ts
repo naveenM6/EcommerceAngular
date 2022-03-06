@@ -20,7 +20,6 @@ export class ProductComponent implements OnInit {
   category = ''
   price = 0
   rate = 0
-  count = 0
   cartItems:any = [];
   loggedUser:any = window.localStorage.getItem('loggedUser')
 
@@ -28,6 +27,7 @@ export class ProductComponent implements OnInit {
     this.productId = this.route.snapshot.paramMap.get('id')
   }
   
+  //Fetching Added Cart Items from db
   getCartItems(){
     this.rest.getCartProducts(this.loggedUser).subscribe(
       (data) => {
@@ -46,7 +46,7 @@ export class ProductComponent implements OnInit {
     )
   }
 
-  //Get The Product Based ON Param
+  //Get The Product Based ON product ID
   getTheProduct(){
     this.rest.getProduct(this.productId).subscribe(
       (data) =>{
@@ -65,7 +65,6 @@ export class ProductComponent implements OnInit {
   }
   
   //Check Product Added To cart or not
-
   addingProductToCart(){
     const {id,title,image,price} = this.productDetails;
       const noOfItems = 1;
@@ -81,6 +80,7 @@ export class ProductComponent implements OnInit {
       )
   }
 
+  //Deleting Item From The Cart
   removeFromCart(){
     this.rest.deleteCartProduct(this.loggedUser,this.productDetails.id).subscribe(
       (data) => {
@@ -91,6 +91,7 @@ export class ProductComponent implements OnInit {
     )
   }
 
+  //Checking Wether the item Added to the cart or not 
   addedToCart = false;
   addToCart(){
     let checker = this.addedToCart
@@ -102,17 +103,6 @@ export class ProductComponent implements OnInit {
        this.removeFromCart()
     }
   }
-
-
-  /* increaseProductCount(){
-    this.productCartCount += 1;
-  }
-
-  decreaseProductCount(){
-    if(this.productCartCount > 0)
-      this.productCartCount -= 1;
-  } */
-
 
   ngOnInit(): void {
     this.getTheProduct()

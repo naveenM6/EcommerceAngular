@@ -17,6 +17,7 @@ export class OrderedComponent implements OnInit {
   isHavingOrders:number = 0;
   activeUser = window.localStorage.getItem('loggedUser');
 
+  //Fetching Ordered data based on active user ID
    getOrdered(){
     this.rest.getOrdered(this.activeUser).subscribe(
       (data) => {
@@ -30,11 +31,13 @@ export class OrderedComponent implements OnInit {
     )
   }
 
+
+  //Creating a new array instead of making changes in original array
   arrangeOrders(){
     this.finalData = [...this.orderedDataFromRest];
-    this.orderedItem = this.finalData.filter( (each:any) => {
+    /* this.orderedItem = this.finalData.filter( (each:any) => {
       return each.orders;
-    })
+    }) */
   }
 
   ngOnInit(): void {

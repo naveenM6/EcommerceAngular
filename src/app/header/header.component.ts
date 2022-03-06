@@ -13,6 +13,7 @@ export class HeaderComponent implements OnInit {
   siteLogo = "https://assets.ccbp.in/frontend/react-js/nxt-trendz-logo-img.png"
   logoutLogo = "https://assets.ccbp.in/frontend/react-js/nxt-trendz-log-out-img.png"
 
+  //On Click lOG Out
   logOut(){
     window.localStorage.clear();
     this.router.navigate(['/login']);

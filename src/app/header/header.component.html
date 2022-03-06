@@ -5,6 +5,7 @@
             <a routerLinkActive="active" routerLink="/"><img [src]="siteLogo" class="logo" alt="Site Logo"></a>
             <a routerLinkActive="active" routerLink="/login"><img [src]="logoutLogo" class="logoutLogo d-md-none" alt="logout Logo" (click)="logOut()"></a>
         </div>
+        <!-- Mobile Nav -->
         <div class="col-12 mt-4 d-flex justify-content-around d-md-none">
             <a class='nav-link' routerLinkActive="active" routerLink="/">
                 <img class="nav-images" src="https://assets.ccbp.in/frontend/react-js/nxt-trendz-home-icon.png" alt="home-image">
@@ -21,6 +22,7 @@
                 <img class="nav-images" src="https://assets.ccbp.in/frontend/react-js/nxt-trendz-cart-icon.png" alt="cart-image">
             </a>
         </div>
+        <!-- Tablet and Above -->
         <div class="d-none d-md-block col-md-5">
             <ul class="list-container">
                 <li class="home-li">

@@ -23,6 +23,7 @@ export class SignupComponent implements OnInit {
     }
   }
   
+  //Sign Up Reactive Form
   signUpReactiveForm = new FormGroup({
     userReactive : new FormControl('',[Validators.required,Validators.minLength(6)]),
     EmailReactive : new FormControl('',[Validators.required,Validators.email]),
@@ -42,6 +43,8 @@ export class SignupComponent implements OnInit {
   }
 
 
+
+  // Onclick to register account
   onSignUp(){
     const userName = this.signUpReactiveForm.get(['userReactive'])?.value;
     const email = this.signUpReactiveForm.get(['EmailReactive'])?.value;

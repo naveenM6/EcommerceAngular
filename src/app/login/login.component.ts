@@ -26,6 +26,7 @@ export class LoginComponent implements OnInit {
     }
   }
 
+  //Login Reactive Form
   loginReactiveForm = new FormGroup({
     userReactive : new FormControl('',[Validators.required]),
     passwordReactive : new FormControl('',[Validators.required,Validators.minLength(6)])
@@ -41,6 +42,7 @@ export class LoginComponent implements OnInit {
   }
 
 
+  //On Click Login Button
   onClickLogin(){
     const userName = this.loginReactiveForm.get(['userReactive'])?.value;
     const password = this.loginReactiveForm.get(['passwordReactive'])?.value;

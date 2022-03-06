@@ -13,7 +13,6 @@ import { CartComponent } from './cart/cart.component';
 import { NotfoundComponent } from './notfound/notfound.component';
 import { HeaderComponent } from './header/header.component';
 import { ProductComponent } from './product/product.component';
-import { EachItemComponent } from './each-item/each-item.component';
 import { OrderedComponent } from './ordered/ordered.component';
 
 @NgModule({
@@ -27,7 +26,6 @@ import { OrderedComponent } from './ordered/ordered.component';
     NotfoundComponent,
     HeaderComponent,
     ProductComponent,
-    EachItemComponent,
     OrderedComponent
   ],
   imports: [

@@ -14,6 +14,7 @@
                         <div class="item-content">
                             <p>{{items.title}}</p>
                             <p class="stock-para"><b>In Stock</b></p>
+                            <!-- Item Quantity Select -->
                             <select name="items" class="price-select-ip" (change)="productQuantity($event,items.pid)">
                                 <option [selected]="items.numberOfItems == 1" value="1">Qty : 1</option>
                                 <option [selected]="items.numberOfItems == 2" value="2">Qty : 2</option>
@@ -29,12 +30,14 @@
             <p class="cart-price"><b>SubTotal ({{cartLength}} items) : ${{price}}</b></p>
         </div>
     </ng-template>
+    <!-- No Products In Cart -->
     <ng-template #showNoItems>
         <div class="no-products-container">
             <img [src]="cartImage" class="no-products-cart-image" alt="cart-image">
             <h3>No Products Added</h3>
         </div>
     </ng-template>
+    <!-- Side Box for Proceeding Further and ordering -->
     <div class="price-checkout-container" *ngIf ="containItems == true">
         <p style="color: rgb(14, 94, 14);"><b>your order is eligible for free delivery.<br> click Proceed to buy to order</b></p>
         <p class="text-center"><b>SubTotal ({{cartLength}} items) : ${{price}}</b></p>
@@ -48,6 +51,7 @@
                     <path fill-rule="evenodd" d="M2.146 2.146a.5.5 0 0 0 0 .708l11 11a.5.5 0 0 0 .708-.708l-11-11a.5.5 0 0 0-.708 0Z"/>
                 </svg>
         </div>
+        <!-- Order Form Model -->
         <ng-container *ngIf="orderSuccess === true;then displaySucess;else details"></ng-container>
             <ng-template #details>
                 <form class="details-form" [formGroup]="orderReactiveForm">
