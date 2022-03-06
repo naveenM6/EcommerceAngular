@@ -17,6 +17,10 @@ export class SignupComponent implements OnInit {
   msg=''
 
   ngOnInit(): void {
+    const isLoggedIn = window.localStorage.getItem('loggedUser');
+    if(isLoggedIn !== null){
+      this.router.navigate(['/']);
+    }
   }
   
   signUpReactiveForm = new FormGroup({
