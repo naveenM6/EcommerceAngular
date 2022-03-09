@@ -14,12 +14,10 @@
                     <option>Electronics</option>
                 </select>
             </div>
-            <div class="rating-container"> 
-                <img (click)="rating(1)" class="rating mx-1 my-3 p-0" src="../assets/star.svg" alt="rating star">
-                <img (click)="rating(2)" class="rating mx-1 my-3 p-0" src="../assets/star.svg" alt="rating star">
-                <img (click)="rating(3)" class="rating mx-1 my-3 p-0" src="../assets/star.svg" alt="rating star">
-                <img (click)="rating(4)"class="rating mx-1 my-3 p-0" src="../assets/star.svg" alt="rating star">
-                <img (click)="rating(5)" class="rating mx-1 my-3 p-0" src="../assets/star.svg" alt="rating star">
+            <div class="rating-container d-flex"> 
+                <div *ngFor="let i of ratingArr">
+                    <img (click)="rating(i)" class="rating mx-1 my-3 p-0" src="../assets/star.svg" alt="rating star">
+                </div>
             </div>
             <div class="price_range">
                 <label>{{minPrice}}</label>
@@ -37,10 +35,10 @@
                 <h2 class="pl-3">{{productType}} Products</h2>
                 <div>
                     <img class="filter-icon" src="../assets/filter-right.svg">
-                    <span><b>Price</b></span>
+                    <span class="bold">Price</span>
                     <select class="price-filters" [(ngModel)]="priceSelector" (change)="priceSelect()">
-                        <option><b>&nbsp; Low-High</b></option>
-                        <option><b>&nbsp; High-Low</b></option>
+                        <option><span class="bold">&nbsp; Low-High</span></option>
+                        <option><span class="bold">&nbsp; High-Low</span></option>
                     </select>
                 </div>
             </div>
@@ -49,7 +47,7 @@
                     <img src={{product.image}} class="product-image">
                     <div>
                         <p>{{product.title}}</p>
-                        <p>Price :- <b>$</b>{{product.price}} <span class="mr-3" style="float: right;">&nbsp;Rating:- {{product.rate}}</span></p>
+                        <p>Price :- <span class="bold">$</span>{{product.price}} <span class="mr-3" style="float: right;">&nbsp;Rating:- {{product.rate}}</span></p>
                     </div>
                 </div>
             </div>

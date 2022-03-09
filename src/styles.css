@@ -1,1 +1,9 @@
-@import '../node_modules/bootstrap/dist/css/bootstrap.css'
+@import '../node_modules/bootstrap/dist/css/bootstrap.css';
+
+
+.errorMsg{
+    color: red;
+}
+.bold{
+    font-weight: bold;
+}

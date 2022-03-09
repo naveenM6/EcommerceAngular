@@ -28,13 +28,13 @@ export class RestService {
     return this.http.post(url,body,{'headers':header,responseType: 'text'})
   }
 
-  getAllProducts():Observable<any>{
+  getAllProducts(){
     let url = 'http://localhost:8008/getAllProducts'
     return this.http.get(url);
   }
 
-  getProduct(id:string | null):Observable<any>{
-    let url='http://localhost:8008/getProduct/' + id;
+  getProduct(id:string | null){
+    let url=`http://localhost:8008/getProduct/${id}`;
     return this.http.get(url);
   }
 

@@ -1,15 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-notfound',
   templateUrl: './notfound.component.html',
-  styleUrls: ['./notfound.component.css']
+  styleUrls: ['./notfound.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class NotfoundComponent implements OnInit {
+export class NotfoundComponent{
 
-  constructor() { }
-
-  ngOnInit(): void {
+  constructor(private readonly cd:ChangeDetectorRef){}
+  onClick(){
+    this.cd.detectChanges
   }
-
 }

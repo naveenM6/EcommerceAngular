@@ -4,28 +4,28 @@
             <img class="log-in-logo-image" src="https://assets.ccbp.in/frontend/react-js/nxt-trendz-logo-img.png">
             <!--Signup Form (Reactive)-->
             <form class="form-container" [formGroup]="signUpReactiveForm">
-                <label><b>User Name</b></label><br>
+                <label class="bold">User Name</label><br>
                 <input class="form-control" type="text" placeholder="Enter User Name" id="userReactive" name="userReactive" formControlName="userReactive">
                 <div *ngIf="userReactive?.invalid && (userReactive?.dirty || userReactive?.touched)">
-                    <p *ngIf="userReactive?.errors?.['required']" style="color: red;"><b>User Id is Required</b></p>
-                    <p *ngIf="userReactive?.errors?.['minlength']" style="color: red;"><b>User Id must contain minimum 6 charecters.</b></p>
+                    <p *ngIf="userReactive?.errors?.['required']" class="errorMsg bold">User Id is Required</p>
+                    <p *ngIf="userReactive?.errors?.['minlength']" class="errorMsg bold">User Id must contain minimum 6 charecters.</p>
                 </div>
-                <label><b>Email</b></label><br>
+                <label class="bold">Email</label><br>
                 <input class="form-control" type="text" placeholder="Enter Email Id" id="EmailReactive" name="EmailReactive" formControlName="EmailReactive">
                 <div *ngIf="EmailReactive?.invalid && (EmailReactive?.dirty || EmailReactive?.touched)">
-                    <p *ngIf="EmailReactive?.errors?.['required']" style="color: red;"><b>Email Id is Required</b></p>
-                    <p *ngIf="EmailReactive?.errors?.['email']" style="color: red;"><b>Enter Correct Email Id</b></p>
+                    <p *ngIf="EmailReactive?.errors?.['required']" class="errorMsg bold">Email Id is Required</p>
+                    <p *ngIf="EmailReactive?.errors?.['email']" class="errorMsg bold">Enter Correct Email Id</p>
                 </div>
-                <label><b>Password</b></label><br>
+                <label class="bold">Password</label><br>
                 <input class="form-control" type="password" placeholder="Enter Password" id="passwordReactive" name="passwordReactive" formControlName="passwordReactive">
                 <div *ngIf="passwordReactive?.invalid && (passwordReactive?.dirty || passwordReactive?.touched)">
-                    <p *ngIf="passwordReactive?.errors?.['required']" style="color: red;"><b>Password is Required</b></p>
-                    <p *ngIf="passwordReactive?.errors?.['minlength']" style="color: red;"><b>Password must be 8 charecters long</b></p>
+                    <p *ngIf="passwordReactive?.errors?.['required']" class="errorMsg bold">Password is Required</p>
+                    <p *ngIf="passwordReactive?.errors?.['minlength']" class="errorMsg bold">Password must be 8 charecters long</p>
                 </div>
                 <input type="button" class="form-control btn btn-primary mt-3" value="Sign Up" (click)="onSignUp()">
             </form>
             <!-- Form End -->
-            <p style="color: red;"><b>{{msg}}</b></p>
+            <p class="errorMsg bold">{{msg}}</p>
             <p class="mt-3">Have an Account?<a routerLink="/login">click here</a> to Sing in.</p>
         </div>
         <div class="col-6 col-md-5">

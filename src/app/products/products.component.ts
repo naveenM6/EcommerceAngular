@@ -12,7 +12,7 @@ import { Productcons } from '../models/Productcons.model';
 export class ProductsComponent implements OnInit {
   allProducts:Productcons[] = [];
   allProductsDup:Productcons[] = [];
-  /* productRendering:any = []; */
+  ratingArr = [1,2,3,4,5];
   productType = 'All'
   price = ''
   priceSelector = ''

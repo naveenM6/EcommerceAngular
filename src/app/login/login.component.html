@@ -8,18 +8,18 @@
         <div class="col-12 col-md-7 login-fom-main-container">
             <img class="log-in-logo-image" src="https://assets.ccbp.in/frontend/react-js/nxt-trendz-logo-img.png">
             <form class="form-container" [formGroup]="loginReactiveForm">
-                <label><b>User Name</b></label><br>
+                <label class="bold">User Name</label><br>
                 <input class="form-control" type="text" id="userReactive" placeholder="Enter User Name" name="userReactive" formControlName="userReactive">
                 <div *ngIf="userReactive?.invalid && (userReactive?.dirty || userReactive?.touched)">
-                    <p *ngIf="userReactive?.errors?.['required']" style="color: red;"><b>User Id is Required</b></p>
+                    <p *ngIf="userReactive?.errors?.['required']" class="errorMsg bold">User Id is Required</p>
                 </div>
-                <label><b>Password</b></label><br>
+                <label class="bold">Password</label><br>
                 <input class="form-control" type="password" id="passwordReactive" placeholder="Enter Password" name="passwordReactive" formControlName="passwordReactive">
                 <div *ngIf="passwordReactive?.invalid && (passwordReactive?.dirty || passwordReactive?.touched)">
-                    <p *ngIf="passwordReactive?.errors?.['required']" style="color: red;"><b>Password is Required</b></p>
+                    <p *ngIf="passwordReactive?.errors?.['required']" class="errorMsg bold">Password is Required</p>
                 </div>
                 <input type="button" class="form-control btn btn-primary mt-3" value="submit" (click)="onClickLogin()">
-                <p style="color: red;"><b>{{msg}}</b></p>
+                <p class="bold errorMsg">{{msg}}</p>
             </form>
             <p class="mt-3">Don't Have an Account?<a routerLink="/signup">click here</a> to Sign up.</p>
         </div>
