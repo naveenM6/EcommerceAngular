@@ -9,17 +9,17 @@
             <h3>No Orders Yet.</h3>
         </div>
     </ng-template>
-    <!-- IF there are orders -->
+    <!-- If there are orders -->
     <ng-template #showOrders>
         <h2 class="pt-2">Orders</h2>
         <div class="ordered-items" *ngFor="let item of finalData">
             <div class="each-item container" *ngFor="let eachItem of item.orders">
                 <img class="each-item-image" src={{eachItem.image}} alt={{eachItem.title}}>
                 <div class="product-info">
-                    <h4><b>{{eachItem.title}}</b></h4>
-                    <p><b>Name :- </b>{{item.name}} <b> Phone :- </b>{{item.phone}}</p>
-                    <p><b>Address :- </b>{{item.address}}</p>
-                    <p><b>Ordered On :- </b>{{item.orderedAt}}</p>
+                    <h4><span class="bold">{{eachItem.title}}</span></h4>
+                    <p><span class="bold">Name :- </span>{{item.name}} <span class="bold"> Phone :- </span>{{item.phone}}</p>
+                    <p><span class="bold">Address :- </span>{{item.address}}</p>
+                    <p><span class="bold">Ordered On :- </span>{{item.orderedAt}}</p>
                 </div>
             </div>
         </div>

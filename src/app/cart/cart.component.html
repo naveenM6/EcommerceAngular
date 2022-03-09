@@ -13,7 +13,7 @@
                     <div class="col-md-6">
                         <div class="item-content">
                             <p>{{items.title}}</p>
-                            <p class="stock-para"><b>In Stock</b></p>
+                            <p class="stock-para">In Stock</p>
                             <!-- Item Quantity Select -->
                             <select name="items" class="price-select-ip" (change)="productQuantity($event,items.pid)">
                                 <option [selected]="items.numberOfItems == 1" value="1">Qty : 1</option>
@@ -27,7 +27,7 @@
                     </div>
                 </div>
             </div>
-            <p class="cart-price"><b>SubTotal ({{cartLength}} items) : ${{price}}</b></p>
+            <p class="cart-price bold">SubTotal ({{cartLength}} items) : ${{price}}</p>
         </div>
     </ng-template>
     <!-- No Products In Cart -->
@@ -55,23 +55,23 @@
         <ng-container *ngIf="orderSuccess === true;then displaySucess;else details"></ng-container>
             <ng-template #details>
                 <form class="details-form" [formGroup]="orderReactiveForm">
-                    <label><b>Enter Your Name</b></label>
+                    <label class="bold">Enter Your Name</label>
                     <input class="form-control" type="text" placeholder="Enter Your Name" formControlName="nameReactive">
                     <div *ngIf="nameReactive?.invalid && (nameReactive?.dirty || nameReactive?.touched)">
-                        <p *ngIf="nameReactive?.errors?.['required']" style="color: red;"><b>Name is Required</b></p>
+                        <p *ngIf="nameReactive?.errors?.['required']" class="errorMsg bold">Name is Required</p>
                     </div>
-                    <label><b>Enter Your Phone Number</b></label>
+                    <label class="bold">Enter Your Phone Number</label>
                     <input class="form-control" type="tel" placeholder="Enter Your Phone Number" formControlName="numberReactive">
                     <div *ngIf="numberReactive?.invalid && (numberReactive?.dirty || numberReactive?.touched)">
-                        <p *ngIf="numberReactive?.errors?.['required']" style="color: red;"><b>phone number is Required</b></p>
-                        <p *ngIf="numberReactive?.errors?.['minlength']" style="color: red;"><b>phone number must contain minimum 10 charecters.</b></p>
-                        <p *ngIf="numberReactive?.errors?.['maxlength']" style="color: red;"><b>phone number must contain maximum 10 charecters.</b></p>
+                        <p *ngIf="numberReactive?.errors?.['required']" class="errorMsg bold">phone number is Required</p>
+                        <p *ngIf="numberReactive?.errors?.['minlength']" class="errorMsg bold">phone number must contain minimum 10 charecters.</p>
+                        <p *ngIf="numberReactive?.errors?.['maxlength']" class="errorMsg bold">phone number must contain maximum 10 charecters.</p>
                     </div>
-                    <label><b>Enter Your Email</b></label>
+                    <label class="bold">Enter Your Email</label>
                     <input class="form-control" type="email" placeholder="Enter Your Email" formControlName="mailReactive">
                     <div *ngIf="mailReactive?.invalid && (mailReactive?.dirty || mailReactive?.touched)">
-                        <p *ngIf="mailReactive?.errors?.['required']" style="color: red;"><b>Email is Required</b></p>
-                        <p *ngIf="mailReactive?.errors?.['email']" style="color: red;"><b>Enter Correct Email Id</b></p>
+                        <p *ngIf="mailReactive?.errors?.['required']" class="errorMsg bold">Email is Required</p>
+                        <p *ngIf="mailReactive?.errors?.['email']" class="errorMsg bold">Enter Correct Email Id</p>
                     </div> 
                     <div class="payment-type">
                         <input type="radio" id="online" name="payment" value="Online Payment" disabled>&nbsp;
@@ -80,13 +80,13 @@
                         <input type="radio" id="cod" value="Cash On Delivery" formControlName="codReactive">&nbsp;
                         <label for="cod"> Cash On Delivery</label>
                         <div *ngIf="codReactive?.invalid && (codReactive?.dirty || codReactive?.touched)">
-                            <p *ngIf="codReactive?.errors?.['required']" style="color: red;"><b>Payment Type is Required</b></p>
+                            <p *ngIf="codReactive?.errors?.['required']" class="errorMsg bold">Payment Type is Required</p>
                         </div>
                     </div>
-                    <label><b>Enter Your Address</b></label>
+                    <label class="bold">Enter Your Address</label>
                     <textarea class="form-control" type="text" placeholder="Enter Your Address" rows="4" cols="50" formControlName="addressReactive"></textarea>
                     <div *ngIf="addressReactive?.invalid && (addressReactive?.dirty || addressReactive?.touched)">
-                        <p *ngIf="addressReactive?.errors?.['required']" style="color: red;"><b>Address is Required</b></p>
+                        <p *ngIf="addressReactive?.errors?.['required']" class="errorMsg bold">Address is Required</p>
                     </div>
                     <div class="d-flex justify-content-end">
                         <input type="button" class="btn btn-danger mx-1 my-2" value="Cancel" (click)="cancelOrder()">
@@ -99,7 +99,7 @@
                     <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="green" class="bi bi-check-circle-fill" viewBox="0 0 16 16">
                         <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
                     </svg>
-                    <p><b>Order Placed Successfully Please Check Your Mail</b></p>
+                    <p class="bold">Order Placed Successfully Please Check Your Mail</p>
                 </div>
             </ng-template>
         </div>
