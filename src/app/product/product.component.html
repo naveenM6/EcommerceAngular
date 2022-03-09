@@ -1,30 +1,30 @@
 <app-header></app-header>
 
-<section class="prodcut-container container">
-    <div class="row project-details">
+<section [ngClass]="['prodcut-container', 'container']">
+    <div [ngClass]="['row project-details']">
         <!--Product Image Rendering -->
-        <div class="col-12 col-md-6 card product-image-card">
-            <img class="product-image" src={{productImage}}>
+        <div [ngClass]="['col-12 col-md-6', 'card' ,'product-image-card']">
+            <img [ngClass]="['product-image']" src={{productImage}}>
         </div>
         <!-- Product Content Rendering -->
-        <div class="col-12 col-md-6">
-            <h2 class="animation">{{title}}</h2>
-            <p class="animation"><span style="color: blue;">Description</span> : {{description}}</p>
-            <p class="animation">Category : {{category}}</p>
-            <div class="price-and-rating">
+        <div [ngClass]="['col-12 col-md-6']">
+            <h2 [ngClass]="['animation']">{{title}}</h2>
+            <p [ngClass]="['animation']"><span style="color: blue;">Description</span> : {{description}}</p>
+            <p [ngClass]="['animation']">Category : {{category}}</p>
+            <div [ngClass]="['price-and-rating']">
                 <p>price : ${{price}}</p>
                 <p>Rating : {{rate}}</p>
             </div>
-            <div class="add-to-cart-buttons">
+            <div [ngClass]="['add-to-cart-buttons']">
                 <ng-container *ngIf="addedToCart == false; then displayNotAdded;else displayAdded"></ng-container>
                 <ng-template #displayNotAdded>
                     <div>
-                        <button class="btn btn-primary" (click)="addToCart()">Add To Cart</button>
+                        <button [ngClass]="['btn btn-primary']" (click)="addToCart()">Add To Cart</button>
                     </div>
                 </ng-template>
                 <ng-template #displayAdded>
                     <div>
-                        <button class="btn btn-primary" (click)="addToCart()">Added To Cart</button>
+                        <button [ngClass]="['btn btn-primary']" (click)="addToCart()">Added To Cart</button>
                     </div>
                 </ng-template>
             </div>
