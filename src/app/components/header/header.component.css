@@ -1,5 +1,5 @@
 .header-container{
-    background-color:#dee2e64d;
+    background-color: var(--header-background);
     padding: 20px;
     position: relative;
 }
@@ -14,7 +14,7 @@
     align-items: center;
 }
 .nav-link{
-    color: #000000;
+    color: var(--nav-link);
 }
 
 .nav-images{

@@ -30,7 +30,7 @@
         display: block;
     }
     .login-fom-main-container{
-        box-shadow: 0 8px 40px rgb(7 7 7 / 8%);
+        box-shadow: var(--form-shadow);
         border-radius: 5px;
     }
 }

@@ -1,12 +1,18 @@
 @import '../node_modules/bootstrap/dist/css/bootstrap.css';
 
 
+:root{
+    --warning : red;
+    --form-shadow: 0 8px 40px rgb(7 7 7 / 8%);
+    --nav-link:#000000;
+    --header-background: #dee2e64d;
+}
 
 body::-webkit-scrollbar {
     display: none;
 }
 .errorMsg{
-    color: red;
+    color: var(--warning);
 }
 .bold{
     font-weight: bold;
