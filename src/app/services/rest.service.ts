@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { User } from './models/userLogin.model';
-import { UserSignUp } from './models/userSignUp.model';
-import { Productcons } from './models/Productcons.model';
-import { CartProduct } from './models/CartProduct.model';
-import { Order } from './models/Orders.model';
+import { User } from '../components/models/userLogin.model';
+import { UserSignUp } from '../components/models/userSignUp.model';
+import { Productcons } from '../components/models/Productcons.model';
+import { CartProduct } from '../components/models/CartProduct.model';
+import { Order } from '../components/models/Orders.model';
 
 @Injectable({
   providedIn: 'root'

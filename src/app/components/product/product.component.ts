@@ -1,6 +1,6 @@
 import { Component, Input, OnInit, Output,EventEmitter } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { RestService } from '../rest.service';
+import { RestService } from '../../services/rest.service';
 import { CartComponent } from '../cart/cart.component';
 import { Productcons } from '../models/Productcons.model';
 import { CartProduct } from '../models/CartProduct.model';

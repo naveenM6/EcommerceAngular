@@ -1,6 +1,10 @@
 @import '../node_modules/bootstrap/dist/css/bootstrap.css';
 
 
+
+body::-webkit-scrollbar {
+    display: none;
+}
 .errorMsg{
     color: red;
 }

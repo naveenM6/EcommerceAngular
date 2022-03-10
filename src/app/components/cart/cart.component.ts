@@ -2,7 +2,7 @@ import { ThisReceiver } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { EachItem } from '../models/EachItem.model';
-import { RestService } from '../rest.service';
+import { RestService } from '../../services/rest.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Order } from '../models/Orders.model';
 
