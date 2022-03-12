@@ -142,7 +142,8 @@ export class CartComponent implements OnInit {
     const address = this.orderReactiveForm.get(['addressReactive'])?.value;
     const cartData = this.cartItems  
    
-    if(uid !== '' && userName !== '' && number !== '' && email !== ''  && address !== ''){
+    //uid !== '' && userName !== '' && number !== '' && email !== ''  && address !== ''
+    if(this.orderReactiveForm?.valid){
       const orderObj = new Order(uid,userName,number,email,payment,address,cartData)
       this.rest.insertOrders(orderObj).subscribe(
         (data) => {

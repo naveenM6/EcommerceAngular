@@ -6,6 +6,7 @@ import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit } from '@
   styleUrls: ['./notfound.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
+
 export class NotfoundComponent{
 
   constructor(private readonly cd:ChangeDetectorRef){}

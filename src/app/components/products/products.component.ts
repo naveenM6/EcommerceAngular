@@ -27,15 +27,16 @@ export class ProductsComponent implements OnInit {
   
   //Get All Products
   getAllProducts(){
-      this.rest.getAllProducts().subscribe(
-        (data:any) => {
+      this.rest.getAllProducts().subscribe({
+        next:(data:any) => {
           this.allProducts = data;
           this.allProductsDup = data;
           this.findMinMax();
-        },(err) => {
+        },
+        error:(err) => {
           console.log(err);
         }
-      )
+      })
   }
 
   //Go To Product

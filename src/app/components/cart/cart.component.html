@@ -52,8 +52,8 @@
                 </svg>
         </div>
         <!-- Order Form Model -->
-        <ng-container *ngIf="orderSuccess === true;then displaySucess;else details"></ng-container>
-            <ng-template #details>
+        <!-- <ng-container *ngIf="orderSuccess === true;then displaySucess;else details"></ng-container> -->
+            <div *ngIf="orderSuccess === false; else displaySucess">
                 <form class="details-form" [formGroup]="orderReactiveForm">
                     <label class="bold">Enter Your Name</label>
                     <input class="form-control" type="text" placeholder="Enter Your Name" formControlName="nameReactive">
@@ -63,9 +63,11 @@
                     <label class="bold">Enter Your Phone Number</label>
                     <input class="form-control" type="tel" placeholder="Enter Your Phone Number" formControlName="numberReactive">
                     <div *ngIf="numberReactive?.invalid && (numberReactive?.dirty || numberReactive?.touched)">
-                        <p *ngIf="numberReactive?.errors?.['required']" class="errorMsg bold">phone number is Required</p>
-                        <p *ngIf="numberReactive?.errors?.['minlength']" class="errorMsg bold">phone number must contain minimum 10 charecters.</p>
-                        <p *ngIf="numberReactive?.errors?.['maxlength']" class="errorMsg bold">phone number must contain maximum 10 charecters.</p>
+                        <ng-container *ngIf="$any(numberReactive?.errors) as errors">
+                            <p *ngIf="errors['required']" class="errorMsg bold">phone number is Required</p>
+                            <p *ngIf="errors['minlength'] || errors['maxlength']" class="errorMsg bold">phone number must contain 10 charecters.</p>
+                            <!-- <p *ngIf="numberReactive?.errors?.['maxlength']" class="errorMsg bold">phone number must contain maximum 10 charecters.</p> -->
+                        </ng-container>
                     </div>
                     <label class="bold">Enter Your Email</label>
                     <input class="form-control" type="email" placeholder="Enter Your Email" formControlName="mailReactive">
@@ -93,7 +95,7 @@
                         <input type="button" class="btn btn-primary mx-1 my-2" value="Submit" (click)="onSubmitOrder()">
                     </div>
                 </form>
-            </ng-template>
+            </div>
             <ng-template #displaySucess>
                 <div class="order-success">
                     <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="green" class="bi bi-check-circle-fill" viewBox="0 0 16 16">
