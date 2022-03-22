@@ -161,10 +161,6 @@ export class CartComponent implements OnInit {
 
   ngOnInit(): void {
     this.getCartItems()
-    const isLoggedIn = window.localStorage.getItem('loggedUser');
-    if(isLoggedIn === null){
-      this.router.navigate(['/login']);
-    }
   }
 
 }

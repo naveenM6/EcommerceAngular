@@ -122,9 +122,9 @@ export class ProductsComponent implements OnInit {
 
   ngOnInit(): void {
     this.getAllProducts()
-    const isLoggedIn = window.localStorage.getItem('loggedUser');
+    /* const isLoggedIn = window.localStorage.getItem('loggedUser');
     if(isLoggedIn === null){
       this.router.navigate(['/login']);
-    }
+    } */
   }
 }

@@ -13,10 +13,10 @@ export class HomeComponent implements OnInit {
   homeImage = 'https://assets.ccbp.in/frontend/react-js/nxt-trendz-home-img.png'
 
   ngOnInit(): void {
-    const isLoggedIn = window.localStorage.getItem('loggedUser');
+    /* const isLoggedIn = window.localStorage.getItem('loggedUser');
     if(isLoggedIn === null){
       this.router.navigate(['/login']);
-    }
+    } */
   }
 
 }

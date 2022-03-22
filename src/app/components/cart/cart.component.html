@@ -50,9 +50,8 @@
                     <path fill-rule="evenodd" d="M13.854 2.146a.5.5 0 0 1 0 .708l-11 11a.5.5 0 0 1-.708-.708l11-11a.5.5 0 0 1 .708 0Z"/>
                     <path fill-rule="evenodd" d="M2.146 2.146a.5.5 0 0 0 0 .708l11 11a.5.5 0 0 0 .708-.708l-11-11a.5.5 0 0 0-.708 0Z"/>
                 </svg>
-        </div>
+            </div>
         <!-- Order Form Model -->
-        <!-- <ng-container *ngIf="orderSuccess === true;then displaySucess;else details"></ng-container> -->
             <div *ngIf="orderSuccess === false; else displaySucess">
                 <form class="details-form" [formGroup]="orderReactiveForm">
                     <label class="bold">Enter Your Name</label>
@@ -66,7 +65,6 @@
                         <ng-container *ngIf="$any(numberReactive?.errors) as errors">
                             <p *ngIf="errors['required']" class="errorMsg bold">phone number is Required</p>
                             <p *ngIf="errors['minlength'] || errors['maxlength']" class="errorMsg bold">phone number must contain 10 charecters.</p>
-                            <!-- <p *ngIf="numberReactive?.errors?.['maxlength']" class="errorMsg bold">phone number must contain maximum 10 charecters.</p> -->
                         </ng-container>
                     </div>
                     <label class="bold">Enter Your Email</label>

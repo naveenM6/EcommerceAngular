@@ -8,16 +8,18 @@ import { ProductsComponent } from './components/products/products.component';
 import { CartComponent } from './components/cart/cart.component';
 import { ProductComponent } from './components/product/product.component';
 import { OrderedComponent } from './components/ordered/ordered.component';
+import { AuthGuard } from './guards/auth.guard';
+import { ChecklogGuard } from './guards/checklog.guard';
 
 const routes: Routes = [
   {path: '', redirectTo: '/', pathMatch: 'full'},
-  {path: '', component: HomeComponent},
-  {path: 'login', component: LoginComponent},
-  {path: 'signup', component: SignupComponent},
-  {path: 'products', component: ProductsComponent},
-  {path: 'product/:id', component:ProductComponent},
-  {path: 'cart', component: CartComponent},
-  {path:'orders',component: OrderedComponent},
+  {path: '', component: HomeComponent,canActivate:[AuthGuard]},
+  {path: 'login', component: LoginComponent,canActivate:[ChecklogGuard]},
+  {path: 'signup', component: SignupComponent,canActivate:[ChecklogGuard]},
+  {path: 'products', component: ProductsComponent,canActivate:[AuthGuard]},
+  {path: 'product/:id', component:ProductComponent,canActivate:[AuthGuard]},
+  {path: 'cart', component: CartComponent,canActivate:[AuthGuard]},
+  {path:'orders',component: OrderedComponent,canActivate:[AuthGuard]},
   {path:'**', component:NotfoundComponent}
 ];
 
